@@ -3,6 +3,15 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
+
+terraform {
+  backend "s3" {
+    bucket = "chaitujenkinsdcos"
+    key    = "devdcos/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+  
 resource "aws_eip" "default" {
   instance = "${aws_instance.web.id}"
   vpc      = true
