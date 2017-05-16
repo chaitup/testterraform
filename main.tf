@@ -4,13 +4,7 @@ provider "aws" {
 }
 
 
-terraform {
-  backend "s3" {
-    bucket = "testjenkinsterraform"
-    key    = "jenkins/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
+
   
 resource "aws_eip" "default" {
   instance = "${aws_instance.web.id}"
